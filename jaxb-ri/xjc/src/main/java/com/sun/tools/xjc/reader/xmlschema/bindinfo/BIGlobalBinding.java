@@ -558,12 +558,10 @@ public final class BIGlobalBinding extends AbstractDeclarationImpl {
             this.fixedAttributeAsConstantProperty == b.fixedAttributeAsConstantProperty &&
             this.generateEnumMemberName == b.generateEnumMemberName &&
             this.codeGenerationStrategy == b.codeGenerationStrategy &&
-            this.serializable == b.serializable &&
             this.superClass == b.superClass &&
             this.superInterface == b.superInterface &&
             this.generateElementClass == b.generateElementClass &&
             this.generateMixedExtensions == b.generateMixedExtensions &&
-            this.generateElementProperty == b.generateElementProperty &&
             this.choiceContentProperty == b.choiceContentProperty &&
             this.optionalProperty == b.optionalProperty &&
             this.defaultEnumMemberSizeCap == b.defaultEnumMemberSizeCap &&
@@ -571,7 +569,9 @@ public final class BIGlobalBinding extends AbstractDeclarationImpl {
 
         if (!equal) return false;
 
-        return isEqual(this.nameConverter, b.nameConverter) &&
+        return isEqual(this.serializable, b.serializable) &&
+               isEqual(this.generateElementProperty, b.generateElementProperty) &&
+               isEqual(this.nameConverter, b.nameConverter) &&
                isEqual(this.noMarshaller, b.noMarshaller) &&
                isEqual(this.noUnmarshaller, b.noUnmarshaller) &&
                isEqual(this.noValidator, b.noValidator) &&

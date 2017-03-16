@@ -56,4 +56,19 @@ public final class BISerializable {
     /** serial version UID, or null to avoid generating the serialVersionUID field. */
     @XmlAttribute
     public Long uid;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BISerializable that = (BISerializable) o;
+
+        return uid != null ? uid.equals(that.uid) : that.uid == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return uid != null ? uid.hashCode() : 0;
+    }
 }
